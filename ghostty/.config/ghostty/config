@@ -42,5 +42,6 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #
-
+font-size = 16
+gtk-titlebar  = false
 theme = dark:catppuccin-mocha,light:catppuccin-latte
