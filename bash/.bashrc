@@ -7,7 +7,8 @@
 
 export EDITOR=nvim
 export VISUAL=nvim
-
+export HYPRSHOT_DIR=~/Pictures/
+export XDG_PICTURES_DIR=~/Pictures/
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
