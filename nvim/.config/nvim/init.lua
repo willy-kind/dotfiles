@@ -627,7 +627,11 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
-        --
+        harper_ls = {},
+        jsonls = {},
+        bashls = {},
+        dockerls = {},
+        docker_compose_language_service = {},
         omnisharp = {
           cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
           settings = {

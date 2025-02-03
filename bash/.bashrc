@@ -23,7 +23,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cls='clear'
-
+export 
 PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 
