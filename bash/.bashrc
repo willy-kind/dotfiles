@@ -25,13 +25,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cls='clear'
 
-# This variable is set to the folder .NET was installed to, such as 
-# $HOME/.dotnet: 
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_ENVIRONMENT=Development
-
-# This variable should include both the DOTNET_ROOT folder and the 
-# DOTNET_ROOT/tools folder:
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
 eval "$(fzf --bash)"
