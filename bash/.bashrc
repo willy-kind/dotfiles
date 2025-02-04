@@ -5,10 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export EDITOR=nvim
-export VISUAL=nvim
-export HYPRSHOT_DIR=~/Pictures/
-export XDG_PICTURES_DIR=~/Pictures/
+eval "$(starship init bash)"
+
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
@@ -23,9 +24,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cls='clear'
-export 
-PS1='[\u@\h \W]\$ '
-eval "$(starship init bash)"
 
 # This variable is set to the folder .NET was installed to, such as 
 # $HOME/.dotnet: 
