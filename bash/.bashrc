@@ -24,6 +24,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cls='clear'
+alias ff='fastfetch'
 
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_ENVIRONMENT=Development
