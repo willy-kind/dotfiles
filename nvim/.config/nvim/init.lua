@@ -632,46 +632,6 @@ require('lazy').setup({
         bashls = {},
         dockerls = {},
         docker_compose_language_service = {},
-        omnisharp = {
-          cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
-          settings = {
-            FormattingOptions = {
-              -- Enables support for reading code style, naming convention and analyzer
-              -- settings from .editorconfig.
-              EnableEditorConfigSupport = true,
-              -- Specifies whether 'using' directives should be grouped and sorted during
-              -- document formatting.
-              OrganizeImports = true,
-            },
-            RoslynExtensionsOptions = {
-              -- Enables support for roslyn analyzers, code fixes and rulesets.
-              EnableAnalyzersSupport = true,
-              -- Enables support for showing unimported types and unimported extension
-              -- methods in completion lists. When committed, the appropriate using
-              -- directive will be added at the top of the current file. This option can
-              -- have a negative impact on initial completion responsiveness,
-              -- particularly for the first few completion sessions after opening a
-              -- solution.
-              EnableImportCompletion = true,
-              -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
-              -- true
-              AnalyzeOpenDocumentsOnly = nil,
-            },
-            Sdk = {
-              -- Specifies whether to include preview versions of the .NET SDK when
-              -- determining which version to use for project loading.
-              IncludePrereleases = true,
-            },
-            FileOptions = {
-              SystemExcludeSearchPatterns = {
-                '**/node_modules/**/*',
-                '**/bin/**/*',
-                '**/obj/**/*',
-              },
-              ExcludeSearchPatterns = {},
-            },
-          },
-        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -786,12 +746,12 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
       },
       'saadparwaiz1/cmp_luasnip',
@@ -979,9 +939,13 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
+  require 'kickstart.plugins.csharp',
+  require 'kickstart.plugins.nuget',
+  require 'kickstart.plugins.oil',
+  require 'kickstart.plugins.rest',
+  require 'kickstart.plugins.boilerplate',
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
