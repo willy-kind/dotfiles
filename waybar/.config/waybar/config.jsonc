@@ -4,7 +4,7 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
@@ -14,6 +14,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "custom/nordvpn",
         "pulseaudio",
         "network",
         "backlight",
@@ -38,6 +39,14 @@
     //         "default": ""
     //     }
     // },
+    "custom/nordvpn": {
+        "exec": "$HOME/.config/waybar/scripts/nordvpn-status.sh",
+        "interval": 10,
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": false
+    },
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -100,6 +109,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": false,
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
@@ -124,6 +134,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
+        "tooltip": false,
         "format-icons": [
             "",
             "",
@@ -144,6 +155,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
+        "tooltip": false,
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
@@ -176,32 +188,32 @@
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-linked": "{ifname} (No IP) 󱐡",
+        "format-disconnected": "Disconnected 󰖪",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": false,
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "tooltip": false,
+        "format-bluetooth-muted": "󰝟 {icon}",
+        "format-muted": "󰝟 ",
+        // "format-source": "{volume}% ",
+        // "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",
             "default": [
                 "",
                 "",
                 ""
             ]
         },
-        "on-click": "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {text}",

@@ -5,7 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-eval "$(starship init bash)"
+if [[ -n $DISPLAY ]] || [[ $(tty) != /dev/tty1 ]]; then
+  eval "$(starship init bash)"
+fi
+
 eval "$(fzf --bash)"
 
 alias ls='ls --color=auto'

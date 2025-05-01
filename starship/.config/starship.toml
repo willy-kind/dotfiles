@@ -1,30 +1,18 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+# Use rose-pine-moon color palette
+palette = "rose-pine-moon"
 
+# Simulate a right-side prompt using $fill
 format = """
-$username\
 $directory\
 $git_branch\
 $git_status\
+$cmd_duration\
 $fill\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-$conda\
-$python\
-$time\n  \
-[󱞪](fg:iris) \
+$time$battery\n \
+$character\
 """
 
-palette = "rose-pine-moon"
-
+# Color palette
 [palettes.rose-pine-moon]
 overlay = '#393552'
 love = '#eb6f92'
@@ -33,133 +21,57 @@ rose = '#ea9a97'
 pine = '#3e8fb0'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
+lavender = "#b5c1f5"
 
+# Directory
 [directory]
-format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
-style = "bg:overlay fg:pine"
+style = "fg:pine"
+format = "[ $path ]($style) "
 truncation_length = 3
 truncation_symbol = "…/"
 
-[directory.substitutions]
-Documents = "󰈙"
-Downloads = " "
-Music = " "
-Pictures = " "
-
-[fill]
-style = "fg:overlay"
-symbol = " "
-
+# Git branch
 [git_branch]
-format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
-style = "bg:overlay fg:foam"
 symbol = ""
+style = "fg:foam"
+format = "[$symbol $branch]($style) "
 
+# Git status
 [git_status]
-disabled = false
-style = "bg:overlay fg:love"
-format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
-up_to_date = '[ ✓ ](bg:overlay fg:iris)'
-untracked = '[?\($count\)](bg:overlay fg:gold)'
-stashed = '[\$](bg:overlay fg:iris)'
-modified = '[!\($count\)](bg:overlay fg:gold)'
-renamed = '[»\($count\)](bg:overlay fg:iris)'
-deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](bg:overlay fg:gold)'
-ahead = '[⇡\(${count}\)](bg:overlay fg:foam)'
-diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foam)[⇣\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
-behind = '[⇣\(${count}\)](bg:overlay fg:rose)'
+style = "fg:love"
+format = '[$all_status$ahead_behind]($style) '
 
+# Fill (pushes following modules to right side in bash)
+[fill]
+symbol = " "
+style = "fg:overlay"
+
+# Time
 [time]
-disabled = false
-format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
-style = "bg:overlay fg:rose"
-time_format = "%I:%M%P"
-use_12hr = true
+disabled = true
+style = "fg:rose"
+format = "[$time  ]($style) "
+time_format = "%H:%M"
 
-[username]
-disabled = false
-format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
-show_always = true
-style_root = "bg:overlay fg:iris"
-style_user = "bg:overlay fg:iris"
+# Battery
+[battery]
+disabled = true
+format = "[$symbol$percentage]($style) "
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
 
-# Languages
+[[battery.display]]
+threshold = 100
+style = "fg:gold"
 
-[c]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
+# Command duration
+[cmd_duration]
+min_time = 1000
+format = "took [$duration](fg:gold) "
 
-[elixir]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
+# Prompt character
+[character]
+success_symbol = "[➜](bold rose)"
+error_symbol = "[➜](bold love)"
 
-[elm]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[golang]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[haskell]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[java]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[julia]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[nodejs]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = "󰎙 "
-
-[nim]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = "󰆥 "
-
-[rust]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[scala]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = " "
-
-[python]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-disabled = false
-symbol = ' '
-
-[conda]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
-disabled = false
-symbol = '🅒 '

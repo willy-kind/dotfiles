@@ -58,9 +58,6 @@ button:hover {
 #network:hover {
     background-color: @highlightHigh;
 }
-#pulseaudio:hover {
-    background-color: @highlightHigh;
-}
 
 #workspaces button {
     padding: 0 5px;
@@ -101,6 +98,7 @@ button:hover {
 #network,
 #pulseaudio,
 #wireplumber,
+#custom-nordvpn,
 #custom-media,
 #tray,
 #mode,
@@ -223,6 +221,16 @@ label:focus {
 
 #wireplumber.muted {
     background-color: @overlay;
+}
+
+#custom-nordvpn {
+    color: @text;
+    background-color: @overlay;
+}
+
+#custom-nordvpn.disconnected {
+    background-color: @love;
+    color: @text;
 }
 
 #custom-media {
