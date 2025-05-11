@@ -230,7 +230,7 @@ label:focus {
 
 #custom-nordvpn.disconnected {
     background-color: @love;
-    color: @text;
+
 }
 
 #custom-media {
