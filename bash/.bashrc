@@ -25,10 +25,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cls='clear'
-alias ff='fastfetch'
 alias v='nvim'
-alias ff='fastfetch'
-source <(kubectl completion bash)
 
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"

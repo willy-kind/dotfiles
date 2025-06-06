@@ -676,6 +676,16 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        nil_ls = {
+          settings = {
+            ['nil'] = {
+              formatting = {
+                command = { 'nixpkgs-fmt' },
+              },
+            },
+          },
+        },
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
