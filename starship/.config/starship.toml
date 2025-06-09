@@ -78,6 +78,6 @@ error_symbol = "[➜](bold love)"
 
 [custom.devenv]
 disabled = false
-command = "echo  $DEVENV"
+command = "echo  $DEVENV"
 when = "env | grep -q '^DEVENV='"
 style = "fg:rose"

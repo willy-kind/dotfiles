@@ -14,7 +14,10 @@
       # Optional dev shell
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [ neovim git ];
-        shellHook = ''echo "Welcome to dev shell"'';
+        shellHook = ''
+          echo "GenShell is up and running 󱓞 "
+          export DEVENV=GenShell
+        '';
       };
     }
   );
