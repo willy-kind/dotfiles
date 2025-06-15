@@ -14,6 +14,7 @@
     ],
     "modules-right": [
         "custom/nordvpn",
+        "custom/tailscale",
         "pulseaudio",
         "network",
         "battery",
@@ -22,6 +23,13 @@
     ],
     "custom/nordvpn": {
         "exec": "$HOME/.config/waybar/scripts/nordvpn-status.sh",
+        "interval": 10,
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": false
+    },
+    "custom/tailscale": {
+        "exec": "~/.config/waybar/scripts/tailscale-status.sh",
         "interval": 10,
         "return-type": "json",
         "format": "{}",

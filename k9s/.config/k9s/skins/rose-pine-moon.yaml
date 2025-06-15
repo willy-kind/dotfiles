@@ -1,7 +1,7 @@
 k9s:
   body:
     fgColor: '#e0def4'
-    bgColor: '#232136'
+    bgColor: default
     logoColor: '#c4a7e7'
   prompt:
     fgColor: '#e0def4'

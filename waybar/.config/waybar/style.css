@@ -99,6 +99,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-nordvpn,
+#custom-tailscale,
 #custom-media,
 #tray,
 #mode,
@@ -230,7 +231,14 @@ label:focus {
 
 #custom-nordvpn.disconnected {
     background-color: @love;
+}
+#custom-tailscale {
+    color: @text;
+    background-color: @overlay;
+}
 
+#custom-tailscale.disconnected {
+    background-color: @love;
 }
 
 #custom-media {

@@ -1,0 +1,12 @@
+[Unit]
+Description=Hyprland Wayland Compositor
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/Hyprland
+Restart=always
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=default.target
+

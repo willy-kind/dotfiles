@@ -13,7 +13,11 @@
     {
       # Optional dev shell
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [ neovim git ];
+        packages = with pkgs; [
+          neovim
+          git
+          nodejs
+        ];
         shellHook = ''
           echo "GenShell is up and running 󱓞 "
           export DEVENV=GenShell
