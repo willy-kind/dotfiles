@@ -1,0 +1,7 @@
+      age \
+      fd-find \
+      neovim \
+      tmux \
+      direnv \
+      ripgrep \
+      stow \
