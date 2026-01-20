@@ -1,32 +1,30 @@
-# Use rose-pine-moon color palette
-palette = "rose-pine-moon"
+"$schema" = 'https://starship.rs/config-schema.json'
 
-# Simulate a right-side prompt using $fill
 format = """
 $directory\
 $git_branch\
 $git_status\
 $cmd_duration\
 $fill\
-$time$battery${custom.devenv}\n \
+${custom.devenv}\n\
 $character\
 """
 
-# Color palette
-[palettes.rose-pine-moon]
-overlay = '#393552'
+palette = "rose-pine"
+
+[palettes.rose-pine]
+overlay = '#26233a'
 love = '#eb6f92'
 gold = '#f6c177'
-rose = '#ea9a97'
-pine = '#3e8fb0'
+rose = '#ebbcba'
+pine = '#31748f'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
-lavender = "#b5c1f5"
 
 # Directory
 [directory]
 style = "fg:pine"
-format = "[ $path ]($style) "
+format = "[$path]($style) "
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -46,25 +44,6 @@ format = '[$all_status$ahead_behind]($style) '
 symbol = " "
 style = "fg:overlay"
 
-# Time
-[time]
-disabled = true
-style = "fg:rose"
-format = "[$time  ]($style) "
-time_format = "%H:%M"
-
-# Battery
-[battery]
-disabled = true
-format = "[$symbol$percentage]($style) "
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
-
-[[battery.display]]
-threshold = 100
-style = "fg:gold"
-
 # Command duration
 [cmd_duration]
 min_time = 1000
@@ -74,7 +53,6 @@ format = "took [$duration](fg:gold) "
 [character]
 success_symbol = "[➜](bold rose)"
 error_symbol = "[➜](bold love)"
-
 
 [custom.devenv]
 disabled = false
