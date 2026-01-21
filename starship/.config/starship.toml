@@ -1,12 +1,11 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$directory\
+${custom.devenv}$directory\
 $git_branch\
 $git_status\
 $cmd_duration\
-$fill\
-${custom.devenv}\n\
+$fill\n\
 $character\
 """
 
@@ -56,6 +55,6 @@ error_symbol = "[➜](bold love)"
 
 [custom.devenv]
 disabled = false
-command = "echo  $DEVENV"
+command = "echo 󰻂"
 when = "env | grep -q '^DEVENV='"
-style = "fg:rose"
+style = "fg:love"

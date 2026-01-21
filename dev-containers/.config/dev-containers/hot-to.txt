@@ -1,0 +1,13 @@
+# Build the image
+podman build -t dev-container /PATH/Containerfile
+
+# Create a distrobox from the image
+distrobox create --name dev --image dev-container
+
+# Enter the distrobox
+distrobox enter dev
+
+# Install nix
+curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
+
+source ~/.nix-profile/etc/profile.d/nix.sh
