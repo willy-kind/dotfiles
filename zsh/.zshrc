@@ -1,18 +1,6 @@
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
-
-if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-
-if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
-  source /usr/share/doc/fzf/examples/completion.zsh
-fi
-
-# fzf defaults
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS='
   --height=40%
@@ -45,16 +33,15 @@ alias .....='cd ../../../..'
 alias cls='clear'
 alias v='nvim'
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 export EDITOR=nvim
 export VISUAL=nvim
-
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
-
-# Auto-start hyprland
-if [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$XDG_VTNR" -eq 1 ]]; then
-	start-hyprland
-fi
 
 if [ -e /home/willy/.nix-profile/etc/profile.d/nix.sh ]; then . /home/willy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
