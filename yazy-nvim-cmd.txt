@@ -1,4 +1,0 @@
-vim.keymap.set("n", "<leader>y", function()
-  vim.cmd("terminal yazi")
-end, { desc = "Yazi file manager" })
-
