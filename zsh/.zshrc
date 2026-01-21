@@ -1,6 +1,7 @@
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 source <(fzf --zsh)
+source ~/.nix-profile/etc/profile.d/nix.sh
 
 export FZF_DEFAULT_OPTS='
   --height=40%
