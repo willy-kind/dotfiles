@@ -8,6 +8,8 @@ ENV VISUAL=nvim
 # ------------------------------------------------------------
 RUN pacman -Syu --noconfirm \
     ca-certificates \
+    gcc \
+    bat \
     curl \
     git \
     sudo \

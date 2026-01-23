@@ -9,20 +9,42 @@ $fill\n\
 $character\
 """
 
-palette = "rose-pine"
+palette = "everforest"
 
-[palettes.rose-pine]
-overlay = '#26233a'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ebbcba'
-pine = '#31748f'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
+[palettes.everforest]
+bg_dim = "#232a2e"
+bg0 = "#2d353b"
+bg1 = "#343f44"
+bg2 = "#3d484d"
+bg3 = "#475258"
+bg4 = "#4f585e"
+bg5 = "#56635f"
+bg_visual = "#543a48"
+bg_red = "#514045"
+bg_green = "#425047"
+bg_blue = "#3a515d"
+bg_yellow = "#4d4c43"
+
+fg = "#d3c6aa"
+red = "#e67e80"
+
+orange = "#e69875"
+yellow = "#dbbc7f"
+green = "#a7c080"
+aqua = "#83c092"
+blue = "#7fbbb3"
+purple = "#d699b6"
+grey0 = "#7a8478"
+grey1 = "#859289"
+grey2 = "#9da9a0"
+statusline1 = "#a7c080"
+statusline2 = "#d3c6aa"
+statusline3 = "#e67e80"
+
 
 # Directory
 [directory]
-style = "fg:pine"
+style = "fg:orange"
 format = "[$path]($style) "
 truncation_length = 3
 truncation_symbol = "…/"
@@ -30,12 +52,12 @@ truncation_symbol = "…/"
 # Git branch
 [git_branch]
 symbol = ""
-style = "fg:foam"
+style = "fg:green"
 format = "[$symbol $branch]($style) "
 
 # Git status
 [git_status]
-style = "fg:love"
+style = "fg:red"
 format = '[$all_status$ahead_behind]($style) '
 
 # Fill (pushes following modules to right side in bash)
@@ -46,15 +68,15 @@ style = "fg:overlay"
 # Command duration
 [cmd_duration]
 min_time = 1000
-format = "took [$duration](fg:gold) "
+format = "took [$duration](fg:yellow) "
 
 # Prompt character
 [character]
-success_symbol = "[➜](bold rose)"
-error_symbol = "[➜](bold love)"
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
 
 [custom.devenv]
 disabled = false
 command = "echo 󰻂"
 when = "env | grep -q '^DEVENV='"
-style = "fg:love"
+style = "fg:red"
