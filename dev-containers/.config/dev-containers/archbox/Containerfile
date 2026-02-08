@@ -2,18 +2,22 @@ FROM archlinux:latest
 
 ENV EDITOR=nvim
 ENV VISUAL=nvim
-
+# ------------------------------------------------------------
+# Initialize pacman keyring
+# ------------------------------------------------------------
+RUN pacman-key --init && \
+    pacman-key --populate archlinux
 # ------------------------------------------------------------
 # Base system + dev tools
 # ------------------------------------------------------------
 RUN pacman -Syu --noconfirm \
     ca-certificates \
+    bash-completion \
     gcc \
     bat \
     curl \
     git \
     sudo \
-    zsh \
     tmux \
     neovim \
     ripgrep \
@@ -23,15 +27,10 @@ RUN pacman -Syu --noconfirm \
     wl-clipboard \
     stow \
     starship \
-    yazi \
-    ffmpeg \
-    p7zip \
     jq \
-    poppler \
-    resvg \
-    imagemagick \
     unzip \
     tar \
     less \
     man-db \
+    tldr \
     && pacman -Scc --noconfirm
