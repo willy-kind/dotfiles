@@ -51,6 +51,8 @@ if [ -f /run/.containerenv ] && grep -q "name=\"dev\"" /run/.containerenv 2>/dev
   alias lab='cd ~/repos/homelab/'
   alias genshell='nix develop ~/devshells/general/'
   alias v='nvim'
+  alias ??='fabric'
+  alias sb='cd ~/repos/second-brain/'
 
   function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
