@@ -54,12 +54,16 @@ if [ -f /run/.containerenv ] && grep -q "name=\"dev\"" /run/.containerenv 2>/dev
   alias ??='fabric'
   alias sb='cd ~/repos/second-brain/'
 
-  function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    command yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd <"$tmp"
-    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-    rm -f -- "$tmp"
+  set_age_key() {
+    local line
+    line=$(awk '/^AGE-SECRET-KEY-/{print prev3 " -> " $0} {prev3=prev2; prev2=prev1; prev1=$0}' \
+      ~/.config/sops/age/keys.txt | fzf)
+    AGE_PRIVATE_KEY=$(echo "$line" | awk -F' -> ' '{print $2}')
+    AGE_PUBLIC_KEY=$(rg -B3 "$AGE_PRIVATE_KEY" ~/.config/sops/age/keys.txt | rg 'public key' | sed 's/# public key: //')
+  }
+
+  show_age_key() {
+    rg -B3 "$AGE_PRIVATE_KEY" ~/.config/sops/age/keys.txt
   }
 
   export EDITOR=nvim
